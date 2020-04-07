@@ -1,0 +1,1 @@
+<view class="content"><video class="video" src="{{$root.m0}}" controls autoplay="true" loop="true" object-fit="fill"></video></view>

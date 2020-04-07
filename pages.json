@@ -1,0 +1,157 @@
+{
+	// 设置页面路径
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		// 导航页
+		
+		{
+			"path": "pages/toolMan/toolMan",
+			"style": {
+				"navigationStyle":"custom",
+				"enablePullDownRefresh":true,
+				"backgroundTextStyle":"dark",
+				"app-plus":{
+					"pullToRefresh":{
+						"support":true,
+						"color":"#2BD009",
+						"style":"circle",
+						"contentdown":"下拉刷新"
+					},
+					"scrollIndicator":false
+				}
+				
+			}
+		},
+		{
+			"path":"pages/toolMan/videoPlay",
+			"style":{
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/staMan/staMan",
+			"style": {
+				"navigationBarTitleText": "数据统计",
+				"enablePullDownRefresh":true,
+				"app-plus":{
+					"pullToRefresh":{
+						"support":true,
+						"style":"circle",
+						"color":"#000000"
+					},
+					"animationType":"fade-in",
+					"animationDuration":300,
+					"scrollIndicator":"none"
+				}
+			}
+		},
+		
+		{
+			"path": "pages/taskMan/taskMan",
+			"style": {
+				"navigationBarTitleText": "任务管理"
+			}
+		},
+		{
+			"path": "pages/peoMan/peoMan",
+			"style": {
+				"navigationBarTitleText": "人员管理"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationStyle":"custom" 
+			}
+		},
+		{
+			"path": "pages/login/loginByAcount",
+			"style": {
+				"navigationBarTitleText":"密码登录"
+			}
+		},
+		{
+			"path": "pages/login/loginByFinger",
+			"style": {
+				"navigationBarTitleText":"指纹登录"
+			}
+		}
+	],
+	// 设置默认页面的窗口表现
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "explame",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"enablePullDownRefresh":false,//开启下拉刷新
+		"animationType":"pop-in",//动画
+		"animationDuration":"300",//窗口动画
+		// APP特定样式
+		"app-plus":{
+			
+		},
+		// H5特定样式
+		"h5":{
+			
+		},
+		// 微信小程序特定样式
+		"mp-weixin":{
+			
+		}
+	},
+	// 设置底部tab的表现
+	"tabBar":{
+		"color": "#7A7E83",
+		"selectedColor": "#3387E5",
+		"borderStyle": "black",
+		"backgroundColor": "#F8F8F8",
+		"height": "50px",
+		"fontSize": "10px",
+		"iconWidth": "24px",
+		"spacing": "3px",
+		"list": [
+			{
+				"pagePath": "pages/toolMan/toolMan",
+				"iconPath": "static/tabarIcon/toolMan.png",
+				"selectedIconPath": "static/tabarIcon/toolManA.png",
+				"text": "组件"
+			},
+			{
+				"pagePath": "pages/staMan/staMan",
+				"iconPath": "static/tabarIcon/staMan.png",
+				"selectedIconPath": "static/tabarIcon/staManA.png",
+				"text": "表格"
+			},
+			{
+				"pagePath": "pages/taskMan/taskMan",
+				"iconPath": "static/tabarIcon/taskMan.png",
+				"selectedIconPath": "static/tabarIcon/taskManA.png",
+				"text": "任务管理"
+			},
+			{
+				"pagePath": "pages/peoMan/peoMan",
+				"iconPath": "static/tabarIcon/userMan.png",
+				"selectedIconPath": "static/tabarIcon/userManA.png",
+				"text": "人员管理"
+			}
+		]
+		//tab栏中间设置
+		// "midButton": {
+		// 	"width": "80px",
+		// 	"height": "50px",
+		// 	"text": "文字",
+		// 	"iconPath": "static/image/midButton_iconPath.png",
+		// 	"iconWidth": "24px",
+		// 	"backgroundImage": "static/image/midButton_backgroundImage.png"
+		// }
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

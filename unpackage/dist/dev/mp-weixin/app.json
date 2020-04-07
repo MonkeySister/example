@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/toolMan/toolMan",
+    "pages/toolMan/videoPlay",
+    "pages/staMan/staMan",
+    "pages/taskMan/taskMan",
+    "pages/peoMan/peoMan",
+    "pages/login/index",
+    "pages/login/loginByAcount",
+    "pages/login/loginByFinger"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "explame",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "enablePullDownRefresh": false,
+    "animationType": "pop-in",
+    "animationDuration": "300"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3387E5",
+    "borderStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "height": "50px",
+    "fontSize": "10px",
+    "iconWidth": "24px",
+    "spacing": "3px",
+    "list": [
+      {
+        "pagePath": "pages/toolMan/toolMan",
+        "iconPath": "static/tabarIcon/toolMan.png",
+        "selectedIconPath": "static/tabarIcon/toolManA.png",
+        "text": "组件"
+      },
+      {
+        "pagePath": "pages/staMan/staMan",
+        "iconPath": "static/tabarIcon/staMan.png",
+        "selectedIconPath": "static/tabarIcon/staManA.png",
+        "text": "表格"
+      },
+      {
+        "pagePath": "pages/taskMan/taskMan",
+        "iconPath": "static/tabarIcon/taskMan.png",
+        "selectedIconPath": "static/tabarIcon/taskManA.png",
+        "text": "任务管理"
+      },
+      {
+        "pagePath": "pages/peoMan/peoMan",
+        "iconPath": "static/tabarIcon/userMan.png",
+        "selectedIconPath": "static/tabarIcon/userManA.png",
+        "text": "人员管理"
+      }
+    ]
+  },
+  "usingComponents": {
+    "uni-icon": "/components/uni-nav-bar/uni-nav-bar",
+    "faicon": "/components/fa-icon/fa-icon"
+  },
+  "sitemapLocation": "sitemap34.json"
+}
