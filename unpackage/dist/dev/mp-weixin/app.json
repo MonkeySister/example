@@ -57,7 +57,6 @@
   },
   "usingComponents": {
     "uni-icon": "/components/uni-nav-bar/uni-nav-bar",
-    "faicon": "/components/fa-icon/fa-icon"
-  },
-  "sitemapLocation": "sitemap34.json"
+    "cmd-icon": "/components/cmd-icon/cmd-icon"
+  }
 }

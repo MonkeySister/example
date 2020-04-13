@@ -6,18 +6,14 @@ import App from './App'
 import http from './static/js/http.js'
 Vue.prototype.$http = http
 
-//不支持全面屏
-// import uniNavBar from './components/uni-nav-bar/uni-nav-bar.vue'
-// Vue.component('uni-nav-bar',uniNavBar)
 //图标组件
 import uniIcons from './components/uni-nav-bar/uni-nav-bar.vue'
 Vue.component('uni-icon',uniIcons)
+//外界图标
+import cmdIcon from "@/components/cmd-icon/cmd-icon.vue"
+Vue.component('cmd-icon',cmdIcon)
 
-//外界字体图标
-import faicon from './components/fa-icon/fa-icon.vue'
-Vue.component('faicon',faicon)
-
-// import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css'
 
 
 

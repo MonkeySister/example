@@ -1,9 +1,10 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+		<view class="status_bar"></view>
+		<view class="header" :class="{headerX:activeX}" >
+			扩展插件
 		</view>
+		
 	</view>
 </template>
 
@@ -11,42 +12,33 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				activeX:false,
 			}
 		},
 		onLoad() {
-
+			//自定义导航栏标题头加长
+			var _this = this
+			// #ifdef APP-PLUS || MP-WEIXIN
+			uni.getSystemInfo({
+				success:function(res){
+					if(res.model.includes('iPhone X')){
+						_this.activeX = true
+					}
+				}
+			})
+			// #endif
 		},
 		methods: {
-
+			
 		}
 	}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+<style lang="less">
+.header{
+	display: flex;
+	align-items: flex-end;
+}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
 
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
 </style>

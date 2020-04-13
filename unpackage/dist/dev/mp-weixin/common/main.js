@@ -13,23 +13,19 @@ var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));
 
 
 
-var _http = _interopRequireDefault(__webpack_require__(/*! ./static/js/http.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-_vue.default.prototype.$http = _http.default;
-
-//不支持全面屏
-// import uniNavBar from './components/uni-nav-bar/uni-nav-bar.vue'
-// Vue.component('uni-nav-bar',uniNavBar)
-//图标组件
-var uniIcons = function uniIcons() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! ./components/uni-nav-bar/uni-nav-bar.vue */ 79));};
-_vue.default.component('uni-icon', uniIcons);
-
-//外界字体图标
-var faicon = function faicon() {return __webpack_require__.e(/*! import() | components/fa-icon/fa-icon */ "components/fa-icon/fa-icon").then(__webpack_require__.bind(null, /*! ./components/fa-icon/fa-icon.vue */ 86));};
-_vue.default.component('faicon', faicon);
-
-// import 'font-awesome/css/font-awesome.min.css';
+var _http = _interopRequireDefault(__webpack_require__(/*! ./static/js/http.js */ 15));
 
 
+
+
+
+
+
+
+
+__webpack_require__(/*! font-awesome/css/font-awesome.min.css */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}_vue.default.prototype.$http = _http.default; //图标组件
+var uniIcons = function uniIcons() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! ./components/uni-nav-bar/uni-nav-bar.vue */ 81));};_vue.default.component('uni-icon', uniIcons); //外界图标
+var cmdIcon = function cmdIcon() {return __webpack_require__.e(/*! import() | components/cmd-icon/cmd-icon */ "components/cmd-icon/cmd-icon").then(__webpack_require__.bind(null, /*! @/components/cmd-icon/cmd-icon.vue */ 88));};_vue.default.component('cmd-icon', cmdIcon);
 
 _vue.default.config.productionTip = false;
 
@@ -119,6 +115,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default = {
   onLaunch: function onLaunch() {
     console.log('App Launch');
+
   },
   onShow: function onShow() {
     console.log('App Show');

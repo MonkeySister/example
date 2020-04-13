@@ -3,6 +3,7 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
+			
 		},
 		onShow: function() {
 			console.log('App Show')
@@ -23,20 +24,36 @@
 		overflow-x: hidden;
 		height: 100%;
 		box-sizing: border-box;
-	}
-	// @font-face {
-	// 	font-family:'PingFang SC';
-	// 	src: url('./static/fontFamily/PingFang1.ttf');
-	// }
-	view{
-		font-family: 'PingFang SC' !important;
-		font-weight: 'Semibold';
-		
+		font-family:Sans-serif,Monospace ,Fantasy,Cursive, Times, TimesNR, 'New Century Schoolbook',
+     Georgia, 'New York', serif;;
 	}
 	.content{
 		width: 100%;
 		height: 100%;
 		box-sizing: border-box;
+	}
+	.status_bar {
+		height: var(--status-bar-height);
+		width: 100%;
+		background-color: #EEEEEE;
+	}
+	.header{
+		background-color: #EEEEEE;
+		width: 100%;
+		height: 44px;
+		padding: 5px 10px;
+		box-sizing: border-box;
+		font-size: 32rpx;
+		font-weight: 600;
+	}
+	.headerX{
+		height: 60px;
+		background-color: #EEEEEE;
+		width: 100%;
+		padding: 5px 10px;
+		box-sizing: border-box;
+		font-size: 32rpx;
+		font-weight: 600;
 	}
 	/* 弹性布局 */
 	.f{

@@ -44,7 +44,9 @@
 					mode="style" 
 					note="Tips" 
 					:is-shadow="true"
-					class="card">
+					class="card"
+					:animation="likeAnimation"
+					@tap="likeTab">
 					<view class="">
 						{{list.cardText}}
 					</view>
@@ -54,6 +56,7 @@
 								浏览{{list.cardEyes}}次
 							</view>
 							<view class="footer-box-right">
+								<cmd-icon type="heart" size="18" color="#8F8F94" style="padding-right: 20rpx;"></cmd-icon>
 								<uni-icons type="redo" size="18" color="#8F8F94"></uni-icons>
 							</view>
 						</view>
@@ -126,10 +129,19 @@
 						id:7,
 						bgImg:"../../static/img/audio7.jpg"
 					},
-				]
+				],
+				likeAnimation:{}
 			}
 		},
 		onLoad() {
+			//在页面创建的时候，创建一个临时动画
+			this.animation = uni.createAnimation({
+				
+			})
+		},
+		onUnload() {
+			//页面卸载的时候清除动画数据
+			this.likeAnimation = {}
 		},
 		// 监听用户下拉刷新
 		onPullDownRefresh(){
@@ -141,10 +153,17 @@
 		onShow() {
 		},
 		methods: {
+			//跳转到视频播放页面
 			videoTab(){
-				uni.redirectTo({
-					url:"./videoPlay"
+				uni.navigateTo({
+					url:"/pages/toolMan/videoPlay",
+					animationType:'slide-in-right',
+					animationDuration:500
 				})
+			},
+			//文章双击喜欢
+			likeTab(){
+				console.log(111)
 			}
 		}
 	}
