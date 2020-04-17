@@ -58,5 +58,6 @@
   "usingComponents": {
     "uni-icon": "/components/uni-nav-bar/uni-nav-bar",
     "cmd-icon": "/components/cmd-icon/cmd-icon"
-  }
+  },
+  "sitemapLocation": "sitemap14.json"
 }

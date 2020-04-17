@@ -45,8 +45,7 @@
 					note="Tips" 
 					:is-shadow="true"
 					class="card"
-					:animation="likeAnimation"
-					@tap="likeTab">
+					>
 					<view class="">
 						{{list.cardText}}
 					</view>
@@ -56,12 +55,25 @@
 								浏览{{list.cardEyes}}次
 							</view>
 							<view class="footer-box-right">
-								<cmd-icon type="heart" size="18" color="#8F8F94" style="padding-right: 20rpx;"></cmd-icon>
+								<cmd-icon 
+									type="heart-2 " 
+									size="18" 
+									style="padding-right: 20rpx;" 
+									:color="list.color"
+									class="heart2"
+									@click="heartClick(list)"
+									></cmd-icon>
+									<view class="add-like" :animation="list.animation">
+										+1
+									</view>
 								<uni-icons type="redo" size="18" color="#8F8F94"></uni-icons>
 							</view>
 						</view>
 					</template>
 				</uni-card>
+				
+				
+			
 			</view>
 		</view>
 	</view>
@@ -76,30 +88,39 @@
 				swiperData:['../../static/img/1.jpg','../../static/img/2.jpg','../../static/img/3.jpg','../../static/img/4.jpg','../../static/img/5.jpg'],
 				cardData:[
 					{
-						title:'卡片标题',
+						title:'我喜欢uni',
 						titleBg:'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg',
-						cardText:"我喜欢uni",
-						cardEyes:25
+						cardText:"不知不觉间，已经成为一个小大人了。不得不感叹，光阴似箭，日月如梭，如白驹过隙一般。没想到，我还没想好十八岁该怎么过的时候，十八岁就已经成为过去了。",
+						cardEyes:25,
+						color:'#8F8F94',
+						animation:{}
+					},
+					{
+						title:'我喜欢uni',
+						titleBg:'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/muwu.jpg',
+						cardText:"不知不觉间，已经成为一个小大人了。不得不感叹，光阴似箭，日月如梭，如白驹过隙一般。没想到，我还没想好十八岁该怎么过的时候，十八岁就已经成为过去了。",
+						cardEyes:28,
+						color:'#8F8F94',
+						animation:{}
+					},
+					{
+						title:'我喜欢uni',
+						titleBg:'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg',
+						cardText:"不知不觉间，已经成为一个小大人了。不得不感叹，光阴似箭，日月如梭，如白驹过隙一般。没想到，我还没想好十八岁该怎么过的时候，十八岁就已经成为过去了。",
+						cardEyes:29,
+						color:'#8F8F94',
+						animation:{}
 					},
 					{
 						title:'卡片标题',
 						titleBg:'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/muwu.jpg',
-						cardText:"我喜欢uni",
-						cardEyes:28
-					},
-					{
-						title:'卡片标题',
-						titleBg:'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg',
-						cardText:"我喜欢uni",
-						cardEyes:29
-					},
-					{
-						title:'卡片标题',
-						titleBg:'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/muwu.jpg',
-						cardText:"我喜欢uni",
-						cardEyes:10
+						cardText:"不知不觉间，已经成为一个小大人了。不得不感叹，光阴似箭，日月如梭，如白驹过隙一般。没想到，我还没想好十八岁该怎么过的时候，十八岁就已经成为过去了。",
+						cardEyes:10,
+						color:'#8F8F94',
+						animation:{}
 					}
 				],
+				animationData:[],
 				scrollData:[
 					{
 						id:1,
@@ -130,18 +151,12 @@
 						bgImg:"../../static/img/audio7.jpg"
 					},
 				],
-				likeAnimation:{}
 			}
 		},
 		onLoad() {
-			//在页面创建的时候，创建一个临时动画
-			this.animation = uni.createAnimation({
-				
-			})
+			
 		},
 		onUnload() {
-			//页面卸载的时候清除动画数据
-			this.likeAnimation = {}
 		},
 		// 监听用户下拉刷新
 		onPullDownRefresh(){
@@ -151,6 +166,12 @@
 			}, 3000);
 		},
 		onShow() {
+			
+		},
+		created() {
+			this.cardData.forEach((item,index)=>{
+				this.animationData.push({})
+			})
 		},
 		methods: {
 			//跳转到视频播放页面
@@ -161,9 +182,27 @@
 					animationDuration:500
 				})
 			},
-			//文章双击喜欢
-			likeTab(){
-				console.log(111)
+			//点击喜欢
+			heartClick(list,index){
+				if(list.color==='#8F8F94'){
+					list.color="#ff0000"
+					this.animation = uni.createAnimation()
+					this.animation.translateY(-30).opacity(1).step({
+						duration:400,
+						timingFunction:'ease'
+					})
+					list.animation = this.animation.export()
+					//动画执行后撤销执行
+					setTimeout(function(){
+						this.animation.translateY(0).opacity(0).step({
+							duration:0
+						})
+						list.animation = this.animation.export()
+					}.bind(this),500)
+				}else{
+					list.color='#8F8F94'
+				}
+				
 			}
 		}
 	}
@@ -208,7 +247,7 @@
 				justify-content: space-between;
 				align-items: center;
 				.footer-box-left,.footer-box-right{
-					width: 30%;
+					width: 40%;
 					height: 100%;
 					line-height: 30rpx;
 					color: #8F8F94;
@@ -219,7 +258,19 @@
 				}
 				.footer-box-right{
 					text-align: right;
+					position: relative;
 				}
+				.add-like{
+					position: absolute;
+					top: 20rpx;
+					left: 67%;
+					color: #ff0000;
+					opacity: 0;
+					font-weight: 600;
+				}
+			}
+			.heart2{
+				color: #8F8F94;
 			}
 		}
 		/* #ifdef MP-WEIXIN */

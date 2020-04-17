@@ -50,7 +50,7 @@
 }
 .content .card .card-footer-box .footer-box-left,
 .content .card .card-footer-box .footer-box-right {
-  width: 30%;
+  width: 40%;
   height: 100%;
   line-height: 30rpx;
   color: #8F8F94;
@@ -61,6 +61,18 @@
 }
 .content .card .card-footer-box .footer-box-right {
   text-align: right;
+  position: relative;
+}
+.content .card .card-footer-box .add-like {
+  position: absolute;
+  top: 20rpx;
+  left: 67%;
+  color: #ff0000;
+  opacity: 0;
+  font-weight: 600;
+}
+.content .card .heart2 {
+  color: #8F8F94;
 }
 .content .swiper {
   height: 400rpx;

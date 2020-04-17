@@ -222,6 +222,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 {
   components: { uniCard: uniCard },
   data: function data() {
@@ -229,30 +241,39 @@ __webpack_require__.r(__webpack_exports__);
       swiperData: ['../../static/img/1.jpg', '../../static/img/2.jpg', '../../static/img/3.jpg', '../../static/img/4.jpg', '../../static/img/5.jpg'],
       cardData: [
       {
-        title: '卡片标题',
+        title: '我喜欢uni',
         titleBg: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg',
-        cardText: "我喜欢uni",
-        cardEyes: 25 },
+        cardText: "不知不觉间，已经成为一个小大人了。不得不感叹，光阴似箭，日月如梭，如白驹过隙一般。没想到，我还没想好十八岁该怎么过的时候，十八岁就已经成为过去了。",
+        cardEyes: 25,
+        color: '#8F8F94',
+        animation: {} },
+
+      {
+        title: '我喜欢uni',
+        titleBg: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/muwu.jpg',
+        cardText: "不知不觉间，已经成为一个小大人了。不得不感叹，光阴似箭，日月如梭，如白驹过隙一般。没想到，我还没想好十八岁该怎么过的时候，十八岁就已经成为过去了。",
+        cardEyes: 28,
+        color: '#8F8F94',
+        animation: {} },
+
+      {
+        title: '我喜欢uni',
+        titleBg: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg',
+        cardText: "不知不觉间，已经成为一个小大人了。不得不感叹，光阴似箭，日月如梭，如白驹过隙一般。没想到，我还没想好十八岁该怎么过的时候，十八岁就已经成为过去了。",
+        cardEyes: 29,
+        color: '#8F8F94',
+        animation: {} },
 
       {
         title: '卡片标题',
         titleBg: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/muwu.jpg',
-        cardText: "我喜欢uni",
-        cardEyes: 28 },
-
-      {
-        title: '卡片标题',
-        titleBg: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg',
-        cardText: "我喜欢uni",
-        cardEyes: 29 },
-
-      {
-        title: '卡片标题',
-        titleBg: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/muwu.jpg',
-        cardText: "我喜欢uni",
-        cardEyes: 10 }],
+        cardText: "不知不觉间，已经成为一个小大人了。不得不感叹，光阴似箭，日月如梭，如白驹过隙一般。没想到，我还没想好十八岁该怎么过的时候，十八岁就已经成为过去了。",
+        cardEyes: 10,
+        color: '#8F8F94',
+        animation: {} }],
 
 
+      animationData: [],
       scrollData: [
       {
         id: 1,
@@ -280,21 +301,15 @@ __webpack_require__.r(__webpack_exports__);
 
       {
         id: 7,
-        bgImg: "../../static/img/audio7.jpg" }],
+        bgImg: "../../static/img/audio7.jpg" }] };
 
 
-      likeAnimation: {} };
 
   },
   onLoad: function onLoad() {
-    //在页面创建的时候，创建一个临时动画
-    this.animation = uni.createAnimation({});
-
 
   },
   onUnload: function onUnload() {
-    //页面卸载的时候清除动画数据
-    this.likeAnimation = {};
   },
   // 监听用户下拉刷新
   onPullDownRefresh: function onPullDownRefresh() {
@@ -304,6 +319,12 @@ __webpack_require__.r(__webpack_exports__);
     }, 3000);
   },
   onShow: function onShow() {
+
+  },
+  created: function created() {var _this = this;
+    this.cardData.forEach(function (item, index) {
+      _this.animationData.push({});
+    });
   },
   methods: {
     //跳转到视频播放页面
@@ -314,9 +335,27 @@ __webpack_require__.r(__webpack_exports__);
         animationDuration: 500 });
 
     },
-    //文章双击喜欢
-    likeTab: function likeTab() {
-      console.log(111);
+    //点击喜欢
+    heartClick: function heartClick(list, index) {
+      if (list.color === '#8F8F94') {
+        list.color = "#ff0000";
+        this.animation = uni.createAnimation();
+        this.animation.translateY(-30).opacity(1).step({
+          duration: 400,
+          timingFunction: 'ease' });
+
+        list.animation = this.animation.export();
+        //动画执行后撤销执行
+        setTimeout(function () {
+          this.animation.translateY(0).opacity(0).step({
+            duration: 0 });
+
+          list.animation = this.animation.export();
+        }.bind(this), 500);
+      } else {
+        list.color = '#8F8F94';
+      }
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
